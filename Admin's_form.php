@@ -1,6 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
+<?php
+	if(isset($_POST['submit'])){
+$servername="localhost";
+	$username="root";
+	$password="";
+	$dbname="ebtdb"; //TODO :CHANGE to the real name;
+	$conn= new mysqli($servername,$username,$password,$dbname);
+
+	if($conn->connect_error){
+		die("Connection failed:". $conn->connect_error);
+	}
+
+	$from= $_POST["from"];
+	$to= $_POST["to"];
+	$date= $_POST["date"];
+	$datefinal=str_replace("/","-",$date);	
+	$price=$_POST["price"];
+	$seats=$_POST["seats"];
+	$id = substr($from,0,1).substr($to,0,1).str_ireplace("/","",$date);
+
+
+	$sql="INSERT INTO tours (id,tfrom,tto,tdate,price,seats)
+	VALUES ('$id','$from','$to','$datefinal','$price','$seats')";
+
+	if($conn->query($sql)==TRUE){
+		$conn->close();
+		header("Location: Home.html");
+			echo "Record added successfully";
+	}
+	else{
+		echo "Record addition failed";
+	}
+
+
+	$conn->close();
+}
+?>
 	<title>Admin's form</title>
 		<style type="text/css">
 		body{
@@ -26,6 +63,7 @@
 			filter: alpha (opacity=70);
 			border-radius: 10px;
 		}
+
 		#nav_wrapper ul li {
 			list-style:none;
 			display: inline; 
@@ -37,8 +75,9 @@
 			color: white;
 			text-decoration: none;
 			padding: 15px;
-			margin-right: 220px;
-			margin-left: 215px;
+			margin-right: 10px;
+			margin-left: 10px;
+
 		}
 		#nav_wrapper ul li:hover{
 			background: #FFA500;
@@ -121,12 +160,14 @@
   cursor: pointer;
   margin: 5px;
 }
+
 .button span {
   cursor: pointer;
   display: inline-block;
   position: relative;
   transition: 0.5s;
 }
+
 .button span:after {
   content: '\00bb';
   position: absolute;
@@ -135,9 +176,11 @@
   right: -20px;
   transition: 0.5s;
 }
+
 .button:hover span {
   padding-right: 25px;
 }
+
 .button:hover span:after {
   opacity: 1;
   right: 0;
@@ -152,7 +195,11 @@
 	
 	<div id="nav_wrapper"><br>
 				<ul>
-					<li ><a href="User.html" >Home</a></li>
+					<li><a href="User.html" >Home</a></li>
+					<li><a href="#">Blog</a></li>
+					<li><a href="#">Account</a></li>
+					<li><a href="#">Service</a></li>
+					
 				</ul>
 			
 			</div>
@@ -160,18 +207,18 @@
 
 	<img src="Images/o.png">
 
-	<form>
+	<form method="post" name="Form" onsubmit="" action="">
 		<div class="form-input">
-			<input type="text" name="from" placeholder="From" style="margin-right: 20px;"> <input type="text" name="to" placeholder="To">
+			<input type="text" name="from" placeholder="From" style="margin-right: 20px;" required=""> <input type="text" name="to" placeholder="To" required="">
 		</div>
 		<div class="form-input">
-			<input type="text" name="time" placeholder="Departure Time" style="margin-right: 20px;"> <input type="text" name="price" placeholder="Price">
+			<input type="text" name="date" placeholder="YY/MM/DD" style="margin-right: 20px;" required=""> <input type="text" name="price" placeholder="Price" required="">
 		</div>
 		<div class="form-input">
-			<input type="text" name="number" placeholder="Number of seats" > 
+			<input type="text" name="seats" placeholder="Number of seats" required=""> 
 		</div>
 	<br>
-		<button type="submit" name="submit1" class="button"><span>Add Tour</span> </button> <button type="submit" name="submit1" class="button"><span>Edit Tour</span> </button>
+		<button class="button" type="submit" name="submit"><span>Add tour</span></button> 
 		
 
 		
