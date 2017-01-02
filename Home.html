@@ -10,12 +10,10 @@
 			background-image: url(Images/d.jpg);
 			background-repeat: no-repeat;
 			background-size: 100% 720px;
-
 		}
 		#nav{
 			width: 100%;
 			height: 650px;
-
 		}
 		#nav_wrapper{
 			height: 80px;
@@ -28,13 +26,11 @@
 			filter: alpha (opacity=70);
 			border-radius: 10px;
 		}
-
 		#nav_wrapper ul li {
 			list-style:none;
 			display: inline;
 			font-weight: bold;
 			padding: 10px;
-
 		}
 		#nav_wrapper a {
 			color: white;
@@ -42,7 +38,6 @@
 			padding: 15px;
 			margin-right: 10px;
 			margin-left: 10px;
-
 		}
 		#nav_wrapper ul li:hover{
 			background: #FFA500;
@@ -94,11 +89,8 @@
 			float: left;
 			font-style: bold;
 		}
-
 		.find {
-
 			padding: 15px 30px;
-
 			opacity: 0.8;
 			background-color: 	#FFA500;
 			border: 2px;
@@ -110,32 +102,33 @@
 			cursor: pointer;
 			font-family:"Myriad Pro", "Trebuchet MS", sans-serif;
 		}
-		#Sel1 {
-
-			cursor: pointer;
-			padding: 6px 6px;
-			background-color: #555555;
-			font-size: 12	px;
-			color: black;
-			margin: 10px 10px 10px 10px;
-			border: none;
-			outline: none;
-			-webkit-border-radius: 4px;
-   			 -moz-border-radius: 4px;
-   	     	 border-radius: 10px;
-		    margin-top: 10px;
-
+		#btn_2 {
+			 width: 100px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-size: 10px;
+    visibility: hidden;
+    background-repeat: no-repeat;
+   height: 25px;
+		}
+		#btn_3 {
+		 width: 100px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-size: 10px;
+    visibility: hidden;
+    background-repeat: no-repeat;
+   height: 25px;
 		}
 		.col{
 			border-radius:15px;
 			background-color:#FFA500;
-
 		}
-
 * {box-sizing:border-box}
 body {font-family: Verdana,sans-serif;margin:0}
 .mySlides {display:none}
-
 .slideshow-container {
    position: relative;
     margin: 10%;
@@ -145,7 +138,6 @@ body {font-family: Verdana,sans-serif;margin:0}
     margin-left: 200px;
     margin-top: 150px;
 }
-
 .dot {
     cursor:pointer;
     height: 7px;
@@ -157,29 +149,23 @@ body {font-family: Verdana,sans-serif;margin:0}
     transition: background-color 0.6s ease;
     margin-top: .1%;
 }
-
 .active, .dot:hover {
     background-color: #717171;
 }
-
 .fade {
    -webkit-animation-name: fade;
    -webkit-animation-duration: 1.5s;
     animation-name: fade;
     animation-duration: 1.5s;
 }
-
 @-webkit-keyframes fade {
   from {opacity: .4}
   to {opacity: 1}
 }
-
 @keyframes fade {
   from {opacity: .4}
   to {opacity: 1}
 }
-
-
 .sidenav {
     height: 300px;
     width: 0px;
@@ -194,7 +180,6 @@ body {font-family: Verdana,sans-serif;margin:0}
     border-radius: 10px;
     opacity: 0.7;
 }
-
 .sidenav a {
      padding: 8px 8px 4px 10px;
     text-decoration: none;
@@ -203,7 +188,6 @@ body {font-family: Verdana,sans-serif;margin:0}
     display: block;
     transition: 0.3s
 }
-
 .sidenav a:hover, .offcanvas a:focus{
     color: #f1f1f1;
     background: #FFA500;
@@ -212,7 +196,6 @@ body {font-family: Verdana,sans-serif;margin:0}
 			opacity: 0.6;
 			filter: alpha (opacity=60);
 }
-
 .sidenav .closebtn {
     position: absolute;
     top: 0;
@@ -220,12 +203,10 @@ body {font-family: Verdana,sans-serif;margin:0}
     font-size: 36px;
     margin-left: 50px;
 }
-
 #main {
     transition: margin-left .5s;
     padding: 16px;
 }
-
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
@@ -246,14 +227,12 @@ body {font-family: Verdana,sans-serif;margin:0}
   cursor: pointer;
   margin: 5px;
 }
-
 .button span {
   cursor: pointer;
   display: inline-block;
   position: relative;
   transition: 0.5s;
 }
-
 .button span:after {
   content: '\00bb';
   position: absolute;
@@ -262,16 +241,13 @@ body {font-family: Verdana,sans-serif;margin:0}
   right: -20px;
   transition: 0.5s;
 }
-
 .button:hover span {
   padding-right: 25px;
 }
-
 .button:hover span:after {
   opacity: 1;
   right: 0;
 }
-
 	</style>
 
 
@@ -282,25 +258,90 @@ body {font-family: Verdana,sans-serif;margin:0}
 
 		<div class="cust">
 		<img src="Images/t.png">
-			<form method="post" name="Form" onsubmit="" action="" onSubmit="return checkstatevalue()">
-				<p style="float: left; margin-left: 20px; margin-top: 33px; margin-right: 72px;" > <font color="#aaa" style="bold">From:</font></p><br>
-					<select id="Sel1" onchange="check("Sel1")">
-						<option value="0" class="col">Default</option><option value="1" class="col">Cairo</option><option value="2" class="col">Alexandria</option value="3" class="col">Gharbia<option value="4" class="col">Mansoura</option value="5" class="col"><option value="6" class="col">Hurghada</option><option value="7" class="col">Luxor</option><option value="8" class="col">Sokhna</option>
-					</select>
+			<form method="post" name="Form" onSubmit="return checkstatevalue()">
+				
+					
 
 				<br>
-				<p style="float: left; margin-left: 20px; margin-top: 33px;margin-right: 92px; "  > <font color="#aaa" style="bold">To:</font></p><br>
-					<select id="Sel1" >
-						<option value="0" class="col">Default</option><option value="1" class="col">Gouna</option><option value="2" class="col">Alexandria</option value="3" class="col">Marina<option value="4" class="col">Marassy</option value="5" class="col"><option value="6" class="col">Hurghada</option><option value="7" class="col">Luxor</option><option value="8" class="col">Sokhna</option>
-					</select>
-
 				<br>
+        <a href="table.html">
+				<button  type="button" name="submit" class="button"> <span> Find Buses</span></button></a>
+				<br>
+				<br>
+				<button  type="button" name="submit" class="button" onclick='javascript:show_hide("btn_1","btn_2","btn_3")' id='btn_1'> <span> Specific Tour</span></button>
+				<br>
+				<br>
+				<br>
+				<input list="from" type="text" id="btn_3" placeholder="FROM . . .  " style="
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-size: 10px;
+   	width: 100px;
+   height: 25px;
+   float: left;
+   margin-left: 40px;" required="" >
+<datalist id="from">
+    <option value="Cairo">
+    <option value="Alexandria">
+    <option value="Gharbia">
+    <option value="Mansoura">
+    <option value="Marassy">
+    <option value="Hurghada">
+</datalist>
 
-				<p style="float: left; margin-left: 20px; margin-top: 30px;margin-right: 7px;" > <font color="#aaa" style="bold">Travel date:</font></p><br>
-				<div class="form-input">
-					<input type="text" name="DayToLeave" placeholder="DD/MM/YYYY" style="margin-left: 47px;  margin-top: 8px;" required="">
-				</div><br>
-				<button  type="submit" name="submit" class="button"> <span> FIND BUSES</span></button>
+<input list="to" type="text" id="btn_2" placeholder="TO . . .  " style="
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-size: 10px;
+   	width: 100px;
+   height: 25px;
+   margin-right: 40px;
+   margin-left: 10px" required="">
+<datalist id="to" style="float: left;">
+    <option value="Sharm El Sheikh">
+    <option value="Sahl Hashesh">
+    <option value="Gouna">
+    <option value="Sharkyea">
+    
+</datalist>
+<br>
+<br>
+<button  type="submit" name="submit" class="button"> <span> GO! </span></button>
+<script>
+    var from = [
+        "Sokhna",
+        "Sharkyea"
+    ];
+
+    for (var key in from) {
+        var optionElement = document.createElement("option");
+        optionElement.value = from[key];
+        document.getElementById("from").appendChild(optionElement);
+    }
+      var to = [
+        "Sokhna",
+        "Sharkyea"
+    ];
+
+    for (var key in to) {
+        var optionElement = document.createElement("option");
+        optionElement.value = from[key];
+        document.getElementById("to").appendChild(optionElement);
+    }
+</script>
+
+
+		    <script language='javascript' type='text/javascript'>
+ 
+        function show_hide(id2hide, id2show, id2show2)
+        {
+            document.getElementById(id2hide).style.visibility='visible';
+            document.getElementById(id2show).style.visibility='visible';
+            document.getElementById(id2show2).style.visibility='visible';
+        }
+ 
+    </script>
+
 
 			</form>
 
@@ -377,11 +418,7 @@ body {font-family: Verdana,sans-serif;margin:0}
 
 				<a href="Admin's_form.html" style="display: none;">privacy</a>
 
-<audio controls autoplay style="display: none;">
 
-  <source src="images\k.mp3" type="audio/mpeg">
-
-</audio>
 
 
 
@@ -392,10 +429,8 @@ body {font-family: Verdana,sans-serif;margin:0}
             </span>
 		</div>
 		<script>
-
 var slideIndex = 0;
 showSlides();
-
 function showSlides() {
     var i;
     var slides = document.getElementsByClassName("mySlides");
@@ -407,20 +442,16 @@ function showSlides() {
     slides[slideIndex-1].style.display = "block";
     setTimeout(showSlides, 3000);
 }
-
-
 function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
     document.getElementById("main").style.marginLeft = "250px";
     document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
 }
-
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
     document.getElementById("main").style.marginLeft= "0";
     document.body.style.backgroundColor = "white";
 }
-
 </script>
 
 
