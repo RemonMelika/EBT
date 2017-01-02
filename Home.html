@@ -64,7 +64,7 @@
 			}
 			.cust{
 				width: 300px;
-				height: 500px;
+				height: 450px;
 				text-align: center;
 				background-color: black;
 				opacity: 0.7;
@@ -122,6 +122,18 @@
     background-repeat: no-repeat;
    height: 25px;
 		}
+    #btn_4 {
+       width: 100px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-size: 10px;
+    visibility: hidden;
+    background-repeat: no-repeat;
+   height: 25px;
+    }
+   
+
 		.col{
 			border-radius:15px;
 			background-color:#FFA500;
@@ -167,8 +179,8 @@ body {font-family: Verdana,sans-serif;margin:0}
   to {opacity: 1}
 }
 .sidenav {
-    height: 300px;
-    width: 0px;
+    height: 150px;
+    width: 200px;
     position: fixed;
     z-index: 1;
     top: 13;
@@ -258,17 +270,17 @@ body {font-family: Verdana,sans-serif;margin:0}
 
 		<div class="cust">
 		<img src="Images/t.png">
-			<form method="post" name="Form" onSubmit="return checkstatevalue()">
+			<form method="post" name="Form" onSubmit="return checkstatevalue()" action="table.html">
 				
 					
 
 				<br>
-				<br>
+				
         <a href="table.html">
 				<button  type="button" name="submit" class="button"> <span> Find Buses</span></button></a>
 				<br>
 				<br>
-				<button  type="button" name="submit" class="button" onclick='javascript:show_hide("btn_1","btn_2","btn_3")' id='btn_1'> <span> Specific Tour</span></button>
+				<button  type="button" name="submit" class="button" onclick='javascript:show_hide("btn_1","btn_2","btn_3","btn_4","btn_5")' id='btn_1'> <span> Specific Tour</span></button>
 				<br>
 				<br>
 				<br>
@@ -306,7 +318,24 @@ body {font-family: Verdana,sans-serif;margin:0}
 </datalist>
 <br>
 <br>
-<button  type="submit" name="submit" class="button"> <span> GO! </span></button>
+<input list="date" type="text" id="btn_4" placeholder="DATE . . .  " style="
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-size: 10px;
+    width: 100px;
+   height: 25px;
+   margin-right: 100px;
+   margin-left: 100px" required="">
+<datalist id="date" style="float: left;">
+    <option value="DD/MM/YYYY">
+    
+    
+</datalist>
+<br>
+<br>
+
+<button  type="submit" name="submit" class="button" id="btn_5" style="visibility: hidden;"> <span> GO! </span></button>
+
 <script>
     var from = [
         "Sokhna",
@@ -328,16 +357,27 @@ body {font-family: Verdana,sans-serif;margin:0}
         optionElement.value = from[key];
         document.getElementById("to").appendChild(optionElement);
     }
+    var date = [
+        
+    ];
+
+    for (var key in date) {
+        var optionElement = document.createElement("option");
+        optionElement.value = from[key];
+        document.getElementById("date").appendChild(optionElement);
+    }
 </script>
 
 
 		    <script language='javascript' type='text/javascript'>
  
-        function show_hide(id2hide, id2show, id2show2)
+        function show_hide(id2hide, id2show, id2show2, id2hide2, id2show3)
         {
             document.getElementById(id2hide).style.visibility='visible';
             document.getElementById(id2show).style.visibility='visible';
             document.getElementById(id2show2).style.visibility='visible';
+             document.getElementById(id2hide2).style.visibility='visible';
+            document.getElementById(id2show3).style.visibility='visible';
         }
  
     </script>
@@ -367,6 +407,7 @@ body {font-family: Verdana,sans-serif;margin:0}
 
 
 			<div class="slideshow-container">
+
 
 <div class="mySlides fade" >
 
@@ -401,7 +442,9 @@ body {font-family: Verdana,sans-serif;margin:0}
 </div>
 <br>
 
+
 	</div>
+
 
 
 <div>
@@ -412,17 +455,26 @@ body {font-family: Verdana,sans-serif;margin:0}
 				<a href="@">Help</a>
 				<a href="@">Cookies</a>
 
-
-
-
-
 				<a href="Admin's_form.html" style="display: none;">privacy</a>
+        <audio controls autoplay style="display: none;" id="background_audio" autoplay="autoplay">
+
+  <source src="images\k.mp3" type="audio/mpeg">
+
+</audio>
 
 
 
+<button type="button" class="button" style="margin-left: 800px; background-color: black; width: 80px; opacity: 0.7;" href="#noscroll" id="mute">Mute</button>
+<script type="text/javascript">
+  var audio = document.getElementById('background_audio');
 
-
-
+document.getElementById('mute').addEventListener('click', function (e)
+{
+    e = e || window.event;
+    audio.muted = !audio.muted;
+    e.preventDefault();
+  }, false);
+</script>
 
 
 
