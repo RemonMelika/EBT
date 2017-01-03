@@ -11,6 +11,7 @@ session_start();
 			$tfrom = $_SESSION['from'];
 			$tto = $_SESSION['to'];
 			$tdate = $_SESSION['date'];
+      echo $tdate;
 			$_SESSION['bid']=array();
 			$_SESSION['bseats']=array();
 			$servername="localhost";
@@ -21,7 +22,7 @@ session_start();
 			if($conn->connect_error){
 				die("Connection failed:". $conn->connect_error);
 			$conn->close();
-		}	
+		}
 ?>
 	<title>Tours' form</title>
 		<style type="text/css">
@@ -34,7 +35,7 @@ session_start();
 		#nav{
 			width: 100%;
 			height: 650px;
-		
+
 		}
 		#nav_wrapper{
 			height: 80px;
@@ -50,7 +51,7 @@ session_start();
 		}
 		#nav_wrapper ul li {
 			list-style:none;
-			display: inline; 
+			display: inline;
 			font-weight: bold;
 			padding: 10px;
 
@@ -95,11 +96,11 @@ session_start();
 			padding-left: 10px;
 			border-radius: 4px;
 		}
-	
+
 		.btn-login {
-			
-			padding: 15px 30px;  
-			
+
+			padding: 15px 30px;
+
 			opacity: 0.8;
 			background-color: #27AE60;
 			border: 2px;
@@ -195,13 +196,13 @@ tr:nth-child(even){
 tr:nth-child(odd){
     background-color: white;
 }
-			
+
 td{
 	background-color: #aaa;
 }
 #scr.scroll {
-    
-   
+
+
     overflow: scroll;
 }
 
@@ -211,7 +212,7 @@ td{
 <body>
 
 
-	
+
 
 <div  class="container" style="overflow: scroll;" >
 
@@ -247,19 +248,19 @@ td{
         <td></td>
         <td></td>
     </tr>
-     
+
 </table>
 <button  type="submit" name="submit" class="button"  style=" background-color: blue;" > <span> SUBMIT! </span></button>
 <br>
 
 	<form>
-	
 
 
-		
+
+
 
 	</form>
-	
+
 </div>
 
 <div>
@@ -274,7 +275,16 @@ td{
             </span>
 		</div>
 				<?php
+        echo $flag;
+        if($flag=="true"){
+          echo "long";
+        $sql="SELECT * from tours where  tdate= '".$tdate."'";
+        }
+        else{
+          echo "short";
 				$sql="SELECT * from tours";
+        }
+        echo $sql;
 				$result = $conn->query($sql);
 				if($result->num_rows>0){
 					$row=$result->fetch_assoc();
@@ -285,7 +295,7 @@ td{
 						.$row['price']."</td>"
 						."<td><input type=radio name=book value=Book> </td><td><a href=Admin\'s_form.html><button class=button type=submit name=submit><span>Edit</span> </button></a> </td>"
 						."<td> <button class=button type=submit name=submit style=background-color:red;><span>Delete</span> </button> </td>".
-						
+
 						"</tr>";
 		  		echo"<script>$('#table').append('$str')</script>";
 			//	echo "<script>$('#table').append('<tr><td>'.$row['id'].'</td><td>'.$row['tfrom'].'</td><td>'.$row['tto'].'</td><td>'.$row['price'].'</td></tr>')</script>";
