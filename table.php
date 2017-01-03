@@ -146,6 +146,9 @@ session_start();
   cursor: pointer;
   margin: 5px;
 }
+.hide{
+	display:none;
+}
 .button span {
   cursor: pointer;
   display: inline-block;
@@ -228,8 +231,8 @@ td{
 	     <th> Date </th>
          <th> No. of Seats </th>
         <th> Book </th>
-        <th> Edit </th>
-        <th> Delete </th>
+        <th id="adminized1" class="hide"> Edit </th>
+        <th id="adminized2" class="hide"> Delete </th>
     </tr>
 
 
@@ -279,16 +282,40 @@ td{
             ."<td>".$row['tdate']."</td>"
             ."<td>".$row['seats']."</td>"
 						."<td><input type=number min=0 max=".$row['seats']." step=1 value=0 style=width:40px; required ></td>"
-            ."<td><a href=Admin\'s_form.html><button class=button type=submit name=submit><span>Edit</span> </button></a> </td>"
-						."<td> <button class=button onclick=myfunction(this) type=submit name=submit style=background-color:red; id=".$row['id']."><span>Delete</span> </button> </td>"
+            ."<td class=hide id=adminized><a href=Admin\'s_form.html><button class=button type=submit name=submit><span>Edit</span> </button></a> </td>"
+						."<td class=hide id=adminized> <button class=button onclick=myfunction(this) type=submit name=submit style=background-color:red; id=".$row['id']."><span>Delete</span> </button> </td>"
 						."</tr>";
 		  		echo"<script>$('#table').append('$str')</script>";
 				}
             $deletequery="DELETE from tours WHERE tid='".$row['id']."'";
 				}
 
-        echo "<script> function myfunction(param){".$conn->query(".$deletequery.")";}"; 
+        //echo "<script> function myfunction(param){".$conn->query(".$deletequery.")";}"; 
 
+		?>
+		<?php
+		$servername="localhost";
+		$username="root";	
+		$password="";
+		$dbname="ebtdb"; 
+		$conn= new mysqli($servername,$username,$password,$dbname);
+		$currUser = $_SESSION['username'];
+		$admin = 0;
+		if($conn->connect_error){
+		die("Connection failed:". $conn->connect_error);
+	}
+		$sql = "SELECT admin FROM users WHERE username = '$currUser'";
+		$result = mysqli_query($conn, $sql);
+		if (mysqli_num_rows($result) > 0) {
+   		 while($row = mysqli_fetch_assoc($result)) {
+         $admin = $row["admin"];
+    }
+}
+    	if($admin==1){
+    		echo "<script>document.getElementById('adminized1').classList.remove('hide')</script>";
+    		echo "<script>document.getElementById('adminized2').classList.remove('hide')</script>";
+    		echo "<script>$('td').removeClass('hide')</script>";
+    	}
 		?>
 
 </body>
