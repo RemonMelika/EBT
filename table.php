@@ -274,7 +274,8 @@ td{
 		</div>
 				<?php
         if(isset($_SESSION['from'])){
-          $sql="SELECT * from tours where tfrom = $_SESSION['from']"
+          echo"it is set";
+          $sql="SELECT * from tours where tfrom = "."$_SESSION['from']";
           }
         else{
 				$sql="SELECT * from tours";
