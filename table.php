@@ -7,6 +7,7 @@ session_start();
  <script src="jquery-3.1.1.js"></script>
 <?php
 			//Connect to the DB
+			$flag = $_SESSION['flag'];
 			$tfrom = $_SESSION['from'];
 			$tto = $_SESSION['to'];
 			$tdate = $_SESSION['date'];
