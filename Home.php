@@ -275,7 +275,7 @@ body {font-family: Verdana,sans-serif;margin:0}
 
 		<div class="cust">
 		<img src="Images/t.png">
-			<form method="post" name="Form" onSubmit="return checkstatevalue()" action="table.html">
+			<form method="post" name="Form" onSubmit="return checkstatevalue()" action="table.php">
 				
 					
 
