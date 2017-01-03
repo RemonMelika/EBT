@@ -16,10 +16,6 @@ if(isset($_POST["gosubmit"])) {
   $_SESSION['to'] = $fto;
   $_SESSION['date'] = $fdate;
 }
-if($conn->connect_error){
-    die("Connection failed:". $conn->connect_error);
-  }
-
 ?>
 	<title>Main user</title>
 	<style type="text/css">

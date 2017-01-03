@@ -217,6 +217,7 @@ td{
         <th> Tour </th>
         <th> From </th>
         <th> To </th>
+	<th> Date </th>
         <th> Price (EGP) </th>
          <th> No. of Seats </th>
         <th> Book </th>
@@ -227,6 +228,7 @@ td{
         <td>1</td>
         <td>Cairo</td>
         <td>Gouna</td>
+	<td>11/11/2011</td>
         <td>100</td>
         <td> 48</td>
         <td><input type="number" min="1" max="30" step="1" value="0" style="width: 40px;" required ></td>
@@ -242,6 +244,7 @@ td{
         <td></td>
         <td></td>
         <td></td>
+	<td></td>
     </tr>
 
 </table>
