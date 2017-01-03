@@ -1,10 +1,14 @@
+<? php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
  <script src="jquery-3.1.1.js"></script>
 <?php
 			//Connect to the DB
-
+			$_SESSION['bid']=array();
+			$_SESSION['bseats']=array();
 			$servername="localhost";
 			$username="root";
 			$password="";
