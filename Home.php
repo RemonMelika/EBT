@@ -1,10 +1,25 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
 <? php
 if(isset($_POST["logsubmit"])){
-  session_close();
+  session_destroy();
 }
+if(isset($_POST["gosubmit"])) {
+  $ffrom = $_POST["from"];
+  $fto = $_POST["to"];
+  $fdate = $_POST["date"];
+  $_SESSION['from'] = $ffrom;
+  $_SESSION['to'] = $fto;
+  $_SESSION['date'] = $fdate;
+}
+if($conn->connect_error){
+    die("Connection failed:". $conn->connect_error);
+  }
+
 ?>
 	<title>Main user</title>
 	<style type="text/css">
@@ -289,7 +304,8 @@ body {font-family: Verdana,sans-serif;margin:0}
 				<br>
 				<br>
 				<br>
-				<input list="from" type="text" id="btn_3" placeholder="FROM . . .  " style="
+        <form method="post" name="Form" onsubmit="" action="">
+				<input list="from" type="text" name="from" id="btn_3" placeholder="FROM . . .  " style="
     border: 2px solid #ccc;
     border-radius: 10px;
     font-size: 10px;
@@ -306,7 +322,7 @@ body {font-family: Verdana,sans-serif;margin:0}
     <option value="Hurghada">
 </datalist>
 
-<input list="to" type="text" id="btn_2" placeholder="TO . . .  " style="
+<input list="to" type="text" name = "to" id="btn_2" placeholder="TO . . .  " style="
     border: 2px solid #ccc;
     border-radius: 10px;
     font-size: 10px;
@@ -323,7 +339,7 @@ body {font-family: Verdana,sans-serif;margin:0}
 </datalist>
 <br>
 <br>
-<input list="date" type="text" id="btn_4" placeholder="DATE . . .  " style="
+<input list="date" type="text" name="date" id="btn_4" placeholder="YY/MM/DD . . .  " style="
     border: 2px solid #ccc;
     border-radius: 10px;
     font-size: 10px;
@@ -339,7 +355,9 @@ body {font-family: Verdana,sans-serif;margin:0}
 <br>
 <br>
 
-<button  type="submit" name="submit" class="button" id="btn_5" style="visibility: hidden;"> <span> GO! </span></button>
+<button  type="submit" name="gosubmit" class="button" id="btn_5" style="visibility: hidden;"> <span> GO! </span></button>
+
+</form>
 
 <script>
     var from = [
