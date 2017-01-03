@@ -1,16 +1,11 @@
 <!DOCTYPE html>
 <html>
+<head>
 <? php
-function endSession(){
+if(isset($_POST["logsubmit"])){
   session_close();
-  header("Location: Start.html");
-
-}
-if (isset($_GET['confirm'])){
-  endSession();
 }
 ?>
-<head>
 	<title>Main user</title>
 	<style type="text/css">
 		body{
@@ -409,7 +404,7 @@ body {font-family: Verdana,sans-serif;margin:0}
 
 <div id="mySidenav" class="sidenav" style="float: left;">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="Home.php?confirm=true">Log Out</a>
+  <form method="post"><button class="button" onclick="window.location='Start.html'"type="submit" name="logsubmit"><span>Log out</span></button> </form>
 </div>
 
 
