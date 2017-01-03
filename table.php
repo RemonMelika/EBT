@@ -256,10 +256,9 @@ td{
             </span>
 		</div>
 				<?php
-
         if($flag=="true"){
 
-        $sql="SELECT * from tours where  tdate= '".$tdate."'";
+        $sql="SELECT * from tours where  tdate = '".$tdate."' && tfrom='".$tfrom."' && tto ='".$tto."'";
         }
         else{
 
