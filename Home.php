@@ -4,19 +4,22 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
-<?php
-$_SESSION['flag'] = "false";
+<? php
+if(isset($_POST["logsubmit"])){
+  session_destroy();
+}
 if(isset($_POST["gosubmit"])) {
-  $_SESSION['flag'] = "true";
   $ffrom = $_POST["from"];
   $fto = $_POST["to"];
   $fdate = $_POST["date"];
-  $_SESSION['from'] = $_POST['from'];
-  $_SESSION['to'] = $_POST['to'];
-  $_SESSION['date'] = $_POST['date'];
-  header("Location: table.php");
-
+  $_SESSION['from'] = $ffrom;
+  $_SESSION['to'] = $fto;
+  $_SESSION['date'] = $fdate;
 }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 ?>
 	<title>Main user</title>
 	<style type="text/css">
@@ -149,7 +152,7 @@ if(isset($_POST["gosubmit"])) {
     background-repeat: no-repeat;
    height: 25px;
     }
-   
+
 
 		.col{
 			border-radius:15px;
@@ -287,12 +290,12 @@ body {font-family: Verdana,sans-serif;margin:0}
 
 		<div class="cust">
 		<img src="Images/t.png">
-			<form method="post" name="Form" onSubmit="return checkstatevalue()" action="">
-				
-					
+			<form method="post" name="Form" onSubmit="return checkstatevalue()" action="table.php">
+
+
 
 				<br>
-				
+
         <a href="table.php">
 				<button  type="button" name="submit" class="button"> <span> Find Buses</span></button></a>
 				<br>
@@ -332,7 +335,7 @@ body {font-family: Verdana,sans-serif;margin:0}
     <option value="Sahl Hashesh">
     <option value="Gouna">
     <option value="Sharkyea">
-    
+
 </datalist>
 <br>
 <br>
@@ -346,8 +349,8 @@ body {font-family: Verdana,sans-serif;margin:0}
    margin-left: 100px" required="">
 <datalist id="date" style="float: left;">
     <option value="DD/MM/YYYY">
-    
-    
+
+
 </datalist>
 <br>
 <br>
@@ -378,7 +381,7 @@ body {font-family: Verdana,sans-serif;margin:0}
         document.getElementById("to").appendChild(optionElement);
     }
     var date = [
-        
+
     ];
 
     for (var key in date) {
@@ -390,7 +393,7 @@ body {font-family: Verdana,sans-serif;margin:0}
 
 
 		    <script language='javascript' type='text/javascript'>
- 
+
         function show_hide(id2hide, id2show, id2show2, id2hide2, id2show3)
         {
             document.getElementById(id2hide).style.visibility='visible';
@@ -399,7 +402,7 @@ body {font-family: Verdana,sans-serif;margin:0}
              document.getElementById(id2hide2).style.visibility='visible';
             document.getElementById(id2show3).style.visibility='visible';
         }
- 
+
     </script>
 
 
