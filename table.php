@@ -11,7 +11,6 @@ session_start();
 			$tfrom = $_SESSION['from'];
 			$tto = $_SESSION['to'];
 			$tdate = $_SESSION['date'];
-      echo $tdate;
 			$_SESSION['bid']=array();
 			$_SESSION['bseats']=array();
 			$servername="localhost";
@@ -229,27 +228,7 @@ td{
         <th> Edit </th>
         <th> Delete </th>
     </tr>
-    <tr>
-        <td>1</td>
-        <td>Cairo</td>
-        <td>Gouna</td>
-	    <td>11/9/2001</td>
-        <td>100</td>
-        <td> 48</td>
-        <td><input type="number" min="1" max="30" step="1" value="0" style="width: 40px;" required ></td>
-        <td><a href="Admin's_form.html"><button class="button" type="submit" name="submit"><span>Edit</span> </button></a> </td>
-        <td> <button class="button" type="submit" name="submit" style="background-color: red;"><span>Delete</span> </button> </td>
-    </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
+
 
 </table>
 <button  type="submit" name="submit" class="button"  style=" background-color: blue;" > <span> SUBMIT! </span></button>
@@ -277,16 +256,16 @@ td{
             </span>
 		</div>
 				<?php
-        echo $flag;
+
         if($flag=="true"){
-          echo "long";
+
         $sql="SELECT * from tours where  tdate= '".$tdate."'";
         }
         else{
-          echo "short";
+
 				$sql="SELECT * from tours";
         }
-        echo $sql;
+
 				$result = $conn->query($sql);
 				if($result->num_rows>0){
 					$row=$result->fetch_assoc();
@@ -295,12 +274,14 @@ td{
 						.$row['tfrom']."</td><td>"
 						.$row['tto']."</td><td>"
 						.$row['price']."</td>"
-						."<td><input type=radio name=book value=Book> </td><td><a href=Admin\'s_form.html><button class=button type=submit name=submit><span>Edit</span> </button></a> </td>"
+            ."<td>".$row['tdate']."</td>"
+            ."<td>".$row['seats']."</td>"
+						."<td><input type=number min=0 max=".$row['seats']." step=1 value=0 style=width:40px; required ></td>"
+            ."<td><a href=Admin\'s_form.html><button class=button type=submit name=submit><span>Edit</span> </button></a> </td>"
 						."<td> <button class=button type=submit name=submit style=background-color:red;><span>Delete</span> </button> </td>".
 
 						"</tr>";
 		  		echo"<script>$('#table').append('$str')</script>";
-			//	echo "<script>$('#table').append('<tr><td>'.$row['id'].'</td><td>'.$row['tfrom'].'</td><td>'.$row['tto'].'</td><td>'.$row['price'].'</td></tr>')</script>";
 				}
 				}
 				$conn->close();
