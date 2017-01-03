@@ -7,7 +7,9 @@ session_start();
  <script src="jquery-3.1.1.js"></script>
 <?php
 			//Connect to the DB
-			echo $_SESSION['from'] ." ".$_SESSION['to']. " ".$_SESSION['date'];
+			$tfrom = $_SESSION['from'];
+			$tto = $_SESSION['to'];
+			$tdate = $_SESSION['date'];
 			$_SESSION['bid']=array();
 			$_SESSION['bseats']=array();
 			$servername="localhost";

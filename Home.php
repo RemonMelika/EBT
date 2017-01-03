@@ -5,7 +5,9 @@ session_start();
 <html>
 <head>
 <?php
+$_SESSION['flag'] = false;
 if(isset($_POST["gosubmit"])) {
+  $_SESSION['flag'] = true;
   $ffrom = $_POST["from"];
   $fto = $_POST["to"];
   $fdate = $_POST["date"];
