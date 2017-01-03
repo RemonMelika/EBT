@@ -8,9 +8,11 @@ session_start();
 <?php
 			//Connect to the DB
 			$flag = $_SESSION['flag'];
+			if($flag == "true"){
 			$tfrom = $_SESSION['from'];
 			$tto = $_SESSION['to'];
 			$tdate = $_SESSION['date'];
+			}
 			$_SESSION['bid']=array();
 			$_SESSION['bseats']=array();
 			$servername="localhost";
@@ -255,11 +257,10 @@ td{
 
             </span>
 		</div>
-				<?php
-
+		<?php
         if($flag=="true"){
 
-        $sql="SELECT * from tours where  tdate= '".$tdate."'";
+        $sql="SELECT * from tours where  tdate = '".$tdate."' && tfrom='".$tfrom."' && tto ='".$tto."'";
         }
         else{
 
@@ -268,19 +269,17 @@ td{
 
 				$result = $conn->query($sql);
 				if($result->num_rows>0){
-					$row=$result->fetch_assoc();
 					while($row=$result->fetch_assoc()){
 						$str="<tr><td>".$row['id']."</td><td>"
 						.$row['tfrom']."</td><td>"
 						.$row['tto']."</td><td>"
 						.$row['price']."</td>"
-            ."<td>".$row['tdate']."</td>"
-            ."<td>".$row['seats']."</td>"
+          			    ."<td>".$row['tdate']."</td>"
+          			    ."<td>".$row['seats']."</td>"
 						."<td><input type=number min=0 max=".$row['seats']." step=1 value=0 style=width:40px; required ></td>"
-            ."<td><a href=Admin\'s_form.html><button class=button type=submit name=submit><span>Edit</span> </button></a> </td>"
-						."<td> <button class=button type=submit name=submit style=background-color:red;><span>Delete</span> </button> </td>".
-
-						"</tr>";
+         			    ."<td><a href=Admin\'s_form.php><button class=button type=submit name=submit><span>Edit</span> </button></a> </td>"
+						."<td> <button class=button type=submit name=submit style=background-color:red;><span>Delete</span> </button> </td>"
+						."</tr>";
 		  		echo"<script>$('#table').append('$str')</script>";
 				}
 				}

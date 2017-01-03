@@ -6,6 +6,9 @@ session_start();
 <head>
 <?php
 $_SESSION['flag'] = "false";
+if(isset($_POST["logsubmit"])){
+  session_destroy();
+}
 if(isset($_POST["gosubmit"])) {
   $_SESSION['flag'] = "true";
   $ffrom = $_POST["from"];
