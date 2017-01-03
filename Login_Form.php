@@ -1,3 +1,6 @@
+<? php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +21,7 @@
 	if(isset($_POST["username"])){
 	$username=$_POST["username"];
 	$password=$_POST["password"];
-
+	$_SESSION['username']=$username;
 	$sql="SELECT * from users where username = '$username' ";
 	$result = $conn->query($sql);
 	if($result->num_rows>0){
@@ -34,7 +37,7 @@
 					}
 					//weither admin or normal user but the username and pass are correct
 					$conn->close();
-					header("Location: Home.html");
+					header("Location: Home.php");
 		}
 		else{
 			echo "Incorrect Password";

@@ -1,3 +1,6 @@
+<? php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,7 +8,7 @@
 	if(isset($_POST['submit'])){
 //	echo "php started";
 	//connection to DB
-$servername="localhost";
+	$servername="localhost";
 	$username="root";
 	$password="";
 	$dbname="ebtdb"; //TODO :CHANGE to the real name;
@@ -26,6 +29,7 @@ $servername="localhost";
 	$birthyear=$_POST["year"];
 	$birthdate=$birthyear.'-'.$birthmonth.'-'.$birthday;
 	$email=$_POST["E-mail"];
+	$_SESSION['username']=$username;
 	//echo $username . " " . $password . " " .$mobileno . " " . $birthday."/".$birthmonth."/".$birthyear. " ". $email ."<br>" .$birthdate."<br>";
 
 
