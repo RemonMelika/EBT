@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Main user</title>
+    <style type="text/css">
+        body{
+            font-family: arial, sans-serif;
+            text-align: center;
+            margin: 0 auto;
+            background-image: url(Images/d.jpg);
+            background-repeat: no-repeat;
+            background-size: 100% 720px;
+
+        }
+
+        span.reference{
+                position:fixed;
+                left:10px;
+                bottom:10px;
+                font-size:12px;
+            }
+            span.reference a{
+                color:#aaa;
+                text-transform:uppercase;
+                text-decoration:none;
+                text-shadow:1px 1px 1px #000;
+                margin-right:30px;
+            }
+            span.reference a:hover{
+                color:#ddd;
+            }
+            .cust{
+                width: 300px;
+                height: 500px;
+                text-align: center;
+                background-color: black;
+                opacity: 0.7;
+                border-radius: 10px;
+                float: right;
+                margin-top: 110px;
+            }
+            .cust img {
+            width: 120px;
+            height: 60px;
+            margin-top: -60px;
+            margin-bottom: 30px;
+        }
+
+
+        .find {
+
+            padding: 15px 30px;
+            opacity: 0.8;
+            background-color:   #FFA500;
+            border: 2px;
+            color: black;
+            font-style: bold;
+            width: 130px;
+            border-radius:  10px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            font-family:"Myriad Pro", "Trebuchet MS", sans-serif;
+        }
+        #Sel1 {
+
+            cursor: pointer;
+            padding: 6px 6px;
+            background-color: #555555;
+            font-size: 12   px;
+            color: black;
+            margin: 10px 10px 10px 10px;
+            border: none;
+            outline: none;
+            -webkit-border-radius: 4px;
+             -moz-border-radius: 4px;
+             border-radius: 10px;
+            margin-top: 10px;
+
+        }
+        .col{
+            border-radius:15px;
+            background-color:#FFA500;
+
+        }
+
+* {box-sizing:border-box}
+body {font-family: Verdana,sans-serif;margin:0}
+.mySlides {display:none}
+
+.slideshow-container {
+   position: relative;
+    margin: 10%;
+    width: 600px;
+    height: 220px;
+    float: left;
+    margin-left: 200px;
+    margin-top: 150px;
+}
+
+.dot {
+    cursor:pointer;
+    height: 7px;
+    width: 7px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    margin-top: .1%;
+}
+
+.active, .dot:hover {
+    background-color: #717171;
+}
+
+.fade {
+   -webkit-animation-name: fade;
+   -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+
+
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+.button {
+  border-radius: 7px;
+  background-color: #FFA500;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 20px;
+  padding: 10px;
+  width: 130px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
+    </style>
+
+
+</head>
+
+<body>
+    <div id="nav"><br>
+
+        <div class="cust">
+        <img src="Images/l.png" style="width: 200px; height: 200px;">
+            <form method="post" name="Form" onsubmit="" action="Login_Form.php" >
+                <br>
+
+
+            <button type="submit" name="button" class="button"><span>Sign In</span> </button> <br> <br>
+
+
+
+            </form>
+       <form onsubmit="" action="Reg_form.php"><button type="submit" name="button" class="button"><span>Sign Up</span> </button></form>
+            <br>
+
+        </div><br>
+
+
+
+
+            <div class="slideshow-container">
+
+<div class="mySlides fade" >
+
+  <img src="Images/p13.png" style="width:100%">
+</div>
+
+<div class="mySlides fade">
+
+  <img src="Images/p2.png" style="width:100%">
+</div>
+
+<div class="mySlides fade">
+
+  <img src="Images/p10.png" style="width:100%">
+</div>
+<div class="mySlides fade">
+
+  <img src="Images/p6.png" style="width:100%">
+</div>
+<div class="mySlides fade">
+
+  <img src="Images/p8.png" style="width:100%">
+</div>
+<div class="mySlides fade">
+
+  <img src="Images/p5.png" style="width:100%">
+</div>
+
+<a class="prev" onclick="plusSlides(-1)">❮</a>
+<a class="next" onclick="plusSlides(1)">❯</a>
+
+</div>
+<br>
+    </div>
+
+<div>
+            <span class="reference" >
+                <a href="@">Contact us</a>
+                <a href="@">Terms</a>
+                <a href="@">Developers</a>
+                <a href="@">Help</a>
+                <a href="@">Cookies</a>
+                <a href="@">privacy</a>
+
+
+
+            </span>
+        </div>
+        <script>
+
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex> slides.length) {slideIndex = 1}
+    slides[slideIndex-1].style.display = "block";
+    setTimeout(showSlides, 3000);
+}
+
+
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+    document.body.style.backgroundColor = "white";
+}
+
+</script>
+
+
+</body>
+</html>
