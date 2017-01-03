@@ -1,8 +1,8 @@
-<? php
+<?php
 session_start();
 ?>
 
-<? php 
+<?php 
 $bid = array();
 $bseats = array();
 $bid = $_SESSION['bid'];
@@ -22,7 +22,7 @@ if($conn->query($sql)==TRUE){
 		$conn->close();
 	}
 	else{
-		echo "Booking Tour".$bid[i]" has failed";
+		echo "Booking Tour".$bid[i]." has failed";
 	}
 }
 header("Location: Home.php");

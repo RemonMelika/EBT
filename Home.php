@@ -4,7 +4,7 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
-<? php
+<?php
 if(isset($_POST["logsubmit"])){
   session_destroy();
 }
@@ -12,9 +12,7 @@ if(isset($_POST["gosubmit"])) {
   $ffrom = $_POST["from"];
   $fto = $_POST["to"];
   $fdate = $_POST["date"];
-  $_SESSION['from'] = $ffrom;
-  $_SESSION['to'] = $fto;
-  $_SESSION['date'] = $fdate;
+  $_SESSION['post-date'] = $_POST;
 }
 ?>
 	<title>Main user</title>

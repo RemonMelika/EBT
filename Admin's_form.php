@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<? php
+<?php
 	if(isset($_POST['submit'])){
 	$servername="localhost";
 	$username="root";

@@ -1,22 +1,22 @@
-<? php
+<?php
 session_start();
 ?>
 <!DOCTYPE html>
 <html>
 <head>
  <script src="jquery-3.1.1.js"></script>
-<? php
+<?php
 			//Connect to the DB
-			if(isset($_SESSION['from']))
-				$tfrom = $_SESSION['from'];
-			if(isset($_SESSION['to']))
-				$tto = $_SESSION['to'];
-			if(isset($_SESSION['date']));
-				$tdate = $_SESSION['date'];
+			if(isset($_SESSION['post-data']['from']))
+				$tfrom = $_SESSION['post-data']['from'];
+			if(isset($_SESSIN['post-data']['to']))
+				$tto = $_SESSION['post-data']['to'];
+			if(isset($_SESSION['post-data']['date']))
+				$tdate = $_SESSION['post-data']['date'];
 			$_SESSION['bid']=array();
 			$_SESSION['bseats']=array();
 			$servername="localhost";
-			$username="root";
+			$username="root"
 			$password="";
 			$dbname="ebtdb"; //TODO :CHANGE to the real name;
 			$conn= new mysqli($servername,$username,$password,$dbname);
