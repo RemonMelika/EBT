@@ -1,7 +1,9 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>
+<?php
+session_start();
+?>
 	<title>CheckOut</title>
 		<style type="text/css">
 		body{
@@ -13,7 +15,7 @@
 		#nav{
 			width: 100%;
 			height: 650px;
-
+		
 		}
 		#nav_wrapper{
 			height: 80px;
@@ -29,7 +31,7 @@
 		}
 		#nav_wrapper ul li {
 			list-style:none;
-			display: inline;
+			display: inline; 
 			font-weight: bold;
 			padding: 10px;
 
@@ -50,12 +52,12 @@
 		}
 		.container {
 			width: 500px;
-			height: 500px;
+			height: 550px;
 			text-align: center;
 			margin: 0 auto;
 			background-color: black;
 			opacity: 0.7;
-			margin-top: 80px;
+			margin-top: 60px;
 			margin-left: 400px;
 			border-radius: 10px;
 		}
@@ -74,11 +76,11 @@
 			padding-left: 10px;
 			border-radius: 4px;
 		}
-
+	
 		.btn-login {
-
-			padding: 15px 30px;
-
+			
+			padding: 15px 30px;  
+			
 			opacity: 0.8;
 			background-color: #27AE60;
 			border: 2px;
@@ -143,7 +145,7 @@
   opacity: 1;
   right: 0;
 }
-
+	
 	.form {
   background: rgba(19, 35, 47, 0.9);
   padding: 40px;
@@ -290,14 +292,14 @@ tr:nth-child(even){
 tr:nth-child(odd){
     background-color: white;
 }
-
+			
 td{
 	background-color: #aaa;
 	width: 20px;
 }
 #scr.scroll {
-
-
+    
+   
     overflow: scroll;
 }
 
@@ -305,23 +307,56 @@ p{
 	color: #aaa;
 	font-family: sans-serif;
 	float: left;
-	margin-left: 70px;
+	margin-left: 70px; 
 	margin-right: 50px;
-
+	
 	font-size: 17px;
-}
+}	
 
 label {
 	color: #aaa;
 	font-family: sans-serif;
-	margin-left: 700px;
-	height: 25px;
-	width: 70px;
+	margin-left: 455px;
+	height: 200px;
+	width: 350px;
 	padding: 5px;
 	border-radius: 5px;
 	background-color: orange;
 	opacity: 0.6;
 	font-size: 20px;
+	margin-top: 40px;
+}
+	
+#p1{
+		color: black;
+	font-family: sans-serif;
+	float: left;
+	margin-left: 10px; 
+	margin-right: 50px;
+	
+	font-size: 15px;
+}
+#p2{
+	color: #aaa;
+	font-family: sans-serif;
+	float: left;
+	margin-left: 70px; 
+	margin-right: 50px;
+	
+	font-size: 17px;
+}
+#lb1{
+	color: #aaa;
+	font-family: sans-serif;
+	margin-left: 610px;
+	height: 25px;
+	width: 200px;
+	padding: 5px;
+	border-radius: 5px;
+	background-color: orange;
+	opacity: 0.6;
+	font-size: 20px;
+	margin-top: 1px;
 }
 
 	</style>
@@ -329,41 +364,37 @@ label {
 <body>
 
 
-
-
+	
+	
 <div class="container">
 
 	<img src="Images/ii.png">
 
-	<form>
-		<p>Tour ID:</p> <label style="color: white; border: 1px solid white;" id="l1"> 4</label>
+	<form action="" method="post" >
+	<legend>
+	<p> Review you Bookings!</p></legend>
+		 <label style="color: white; border: 1px solid white;" id="l1"><p id="p1"></p> </label>
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		
+		<p id="p2"> Total Fees:</p><label id="lb1" style="color: black;"></label>
 		<br>
 		<br>
 		<br>
-		<p style="margin-right: 200px;">Price per ticket (EGP):</p> <label style="color: white; border: 1px solid white; " id="l1"> 75</label>
-		<br>
-		<br>
-		<br>
- 	<p style="margin-right: 200px; ">Number of booked tickets:</p> <label style="color: white; border: 1px solid white;" id="l1"> 2</label>
-<br>
-		<br>
-		<br>
-		<p style="margin-right: 200px; ">Total fees:</p> <label style="color: white; border: 1px solid white;" id="l1"> 150</label>
-		<br>
-		<br>
-		<br>
+		<form method="post" name="Form" onsubmit="" action="">
+		<button  type="submit" name="confirm" class="button" onclick="alert('Thanks for your time!. . . Your booking has been RESERVED!')" style="background-color: 		#00FF00"  > <span> CONFIRM! </span></button>
+		</form>
+		<a href="table.php">
+		 <button  type="button" class="button"> <span> Cancel </span></button>
+		 </a>
 		<br>
 		<br>
 
-		<form action="home.php"> <button  type="button" name="submit" class="button" onclick="alert('Thanks for your time!')"  > <span> CONFIRM! </span></button></form>
-		<br>
-		<br>
-		<br>
+		
 		<span style="color: #aaa; ">Please note 5% tax is added on the final receipt</span>
 
 
 	</form>
-
+	
 </div>
 <div>
             <span class="reference">
@@ -376,33 +407,45 @@ label {
 
             </span>
 		</div>
+<?php 
+	$bid = array();
+	$bseats = array();
+	$total = 0;
+	$bid = $_SESSION['bid'];
+	$bseats = $_SESSION['bseats'];
+	$currUser = $_SESSION['username'];
+	$currSeats = 0;
+	for($i =0; $i<count($bid); $i++){
+	$currID = $bid[i];
+	$currSeats = "SELECT seats FROM tours WHERE id = '$currID'";
+	$currPrice = "SELECT price FROM tours WHERE id = '$currID'";
+	$total = $total + ($currPrice * $bseats[i]);
+	echo "<script>document.getElementById('p1').innerHTML+= 'You are booking TourID '+'$currID'+' reserving '+'$bookedSeats'+' seats'+' with a price of '+'$currPrice'+' per seat <br><br>'     </script>";
+}
+	$final = 1.05*$total;
+	echo "<script>document.getElementById('lb1').innerHTML = '$final' </script>";	
+	if(isset($_POST['confirm'])){
+	$servername="localhost";
+	$username="root";
+	$password="";
+	$dbname="ebtdb"; //TODO :CHANGE to the real name;
+	$conn= new mysqli($servername,$username,$password,$dbname);
 
-
-<?php
-$bid = array();
-$bseats = array();
-$bid = $_SESSION['bid'];
-$bseats = $_SESSION['bseats'];
-$currUser = $_SESSION['username'];
-for($i=0; $i<count($_SESSION['array']); $i++){
-$currSeats = "SELECT seats FROM tours WHERE id = $bid[i]";
-
-if($bseats[i] < $currSeats)
-$newSeats = $currSeats - $bseats[i];
-
-$sql ="INSERT INTO bookings (username, tour_id, bseats)
-VALUES('$currUser', '$bid[i]', '$bseats[i]')
-UPDATE tours SET seats = $newSeats WHERE id = $bid[i]";
-
-if($conn->query($sql)==TRUE){
-		$conn->close();
+	if($conn->connect_error){
+		die("Connection failed:". $conn->connect_error);
 	}
-	else{
-		echo "Booking Tour".$bid[i]." has failed";
+	for($i =0; $i<count($bid); $i++){
+	$newSeats = $currSeats - $bseats[i];
+	$sql ="INSERT INTO bookings (username, tour_id, bseats)
+	VALUES('$currUser', '$bid[i]', '$bseats[i]')
+	UPDATE tours SET seats = $newSeats WHERE id = '$bid[i]'";
+	if($conn->query($sql)==False){
+		echo "Booking Tour ".$bid[i]." has failed";
 	}
 }
-//header("Location: Home.php");
+			$conn->close();
+			header("Location: Home.php");
+}
 ?>
-
 </body>
 </html>
