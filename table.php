@@ -72,14 +72,14 @@ session_start();
 			filter: alpha (opacity=60);
 		}
 		.container {
-			width: 700px;
+			width: 900px;
 			height: 580px;
 			text-align: center;
 			margin: 0 auto;
 			background-color: black;
 			opacity: 0.7;
 			margin-top: 50px;
-			margin-left: 300px;
+			margin-left: 200px;
 			border-radius: 10px;
 		}
 		.container img {
