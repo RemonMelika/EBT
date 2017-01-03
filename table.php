@@ -7,16 +7,11 @@ session_start();
  <script src="jquery-3.1.1.js"></script>
 <?php
 			//Connect to the DB
-			if(isset($_SESSION['post-data']['from']))
-				$tfrom = $_SESSION['post-data']['from'];
-			if(isset($_SESSIN['post-data']['to']))
-				$tto = $_SESSION['post-data']['to'];
-			if(isset($_SESSION['post-data']['date']))
-				$tdate = $_SESSION['post-data']['date'];
+			echo $_SESSION['from'] ." ".$_SESSION['to']. " ".$_SESSION['date'];
 			$_SESSION['bid']=array();
 			$_SESSION['bseats']=array();
 			$servername="localhost";
-			$username="root"
+			$username="root";
 			$password="";
 			$dbname="ebtdb"; //TODO :CHANGE to the real name;
 			$conn= new mysqli($servername,$username,$password,$dbname);
@@ -72,14 +67,14 @@ session_start();
 			filter: alpha (opacity=60);
 		}
 		.container {
-			width: 900px;
+			width: 700px;
 			height: 580px;
 			text-align: center;
 			margin: 0 auto;
 			background-color: black;
 			opacity: 0.7;
 			margin-top: 50px;
-			margin-left: 200px;
+			margin-left: 300px;
 			border-radius: 10px;
 		}
 		.container img {

@@ -5,14 +5,15 @@ session_start();
 <html>
 <head>
 <?php
-if(isset($_POST["logsubmit"])){
-  session_destroy();
-}
 if(isset($_POST["gosubmit"])) {
   $ffrom = $_POST["from"];
   $fto = $_POST["to"];
   $fdate = $_POST["date"];
-  $_SESSION['post-date'] = $_POST;
+  $_SESSION['from'] = $_POST['from'];
+  $_SESSION['to'] = $_POST['to'];
+  $_SESSION['date'] = $_POST['date'];
+  header("Location: table.php");
+
 }
 ?>
 	<title>Main user</title>
@@ -284,7 +285,7 @@ body {font-family: Verdana,sans-serif;margin:0}
 
 		<div class="cust">
 		<img src="Images/t.png">
-			<form method="post" name="Form" onSubmit="return checkstatevalue()" action="table.php">
+			<form method="post" name="Form" onSubmit="return checkstatevalue()" action="">
 				
 					
 
