@@ -7,10 +7,13 @@ session_start();
  <script src="jquery-3.1.1.js"></script>
 <?php
 			//Connect to the DB
+
 			$flag = $_SESSION['flag'];
+      if($flag=="true"){
 			$tfrom = $_SESSION['from'];
 			$tto = $_SESSION['to'];
 			$tdate = $_SESSION['date'];
+      }
 			$_SESSION['bid']=array();
 			$_SESSION['bseats']=array();
 			$servername="localhost";
@@ -267,7 +270,7 @@ td{
 
 				$result = $conn->query($sql);
 				if($result->num_rows>0){
-					$row=$result->fetch_assoc();
+
 					while($row=$result->fetch_assoc()){
 						$str="<tr><td>".$row['id']."</td><td>"
 						.$row['tfrom']."</td><td>"
@@ -277,13 +280,15 @@ td{
             ."<td>".$row['seats']."</td>"
 						."<td><input type=number min=0 max=".$row['seats']." step=1 value=0 style=width:40px; required ></td>"
             ."<td><a href=Admin\'s_form.html><button class=button type=submit name=submit><span>Edit</span> </button></a> </td>"
-						."<td> <button class=button type=submit name=submit style=background-color:red;><span>Delete</span> </button> </td>".
-
-						"</tr>";
+						."<td> <button class=button onclick=myfunction(this) type=submit name=submit style=background-color:red; id=".$row['id']."><span>Delete</span> </button> </td>"
+						."</tr>";
 		  		echo"<script>$('#table').append('$str')</script>";
 				}
+            $deletequery="DELETE from tours WHERE tid='".$row['id']."'";
 				}
-				$conn->close();
+
+        echo "<script> function myfunction(param){".$conn->query(".$deletequery.")";}"; 
+
 		?>
 
 </body>
