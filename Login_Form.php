@@ -37,7 +37,7 @@ session_start();
 					}
 					//weither admin or normal user but the username and pass are correct
 					$conn->close();
-					header("Location: Home.html");
+					header("Location: Home.php");
 		}
 		else{
 			echo "Incorrect Password";
