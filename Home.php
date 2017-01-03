@@ -281,7 +281,7 @@ body {font-family: Verdana,sans-serif;margin:0}
 
 				<br>
 				
-        <a href="table.html">
+        <a href="table.php">
 				<button  type="button" name="submit" class="button"> <span> Find Buses</span></button></a>
 				<br>
 				<br>
