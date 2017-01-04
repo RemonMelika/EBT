@@ -8,6 +8,8 @@ session_start();
 $_SESSION['flag'] = "false";
 if(isset($_POST["logsubmit"])){
   session_destroy();
+  header("Location: Start.html");
+
 }
 if(isset($_POST["gosubmit"])) {
   $_SESSION['flag'] = "true";
@@ -108,6 +110,9 @@ if(isset($_POST["gosubmit"])) {
       float: left;
       font-style: bold;
     }
+    .hide{
+      display:none;
+    }
     .find {
       padding: 15px 30px;
       opacity: 0.8;
@@ -197,7 +202,7 @@ body {font-family: Verdana,sans-serif;margin:0}
   to {opacity: 1}
 }
 .sidenav {
-    height: 150px;
+    height: 170px;
     width: 200px;
     position: fixed;
     z-index: 1;
@@ -414,7 +419,8 @@ body {font-family: Verdana,sans-serif;margin:0}
 
 <div id="mySidenav" class="sidenav" style="float: left;">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <form method="post"><button class="button" onclick="window.location='Start.html'"type="submit" name="logsubmit"><span>Log out</span></button> </form>
+  <form method="post"><button class="button" type="submit" name="logsubmit"><span>Log out</span></button> </form>
+  <button class="button hide" id="adminized" onclick="window.location='AdminAdd.php'" name="addTour"><span>Add tour</span></button>
 </div>
 
 
@@ -519,7 +525,28 @@ function closeNav() {
     document.body.style.backgroundColor = "white";
 }
 </script>
-
+<?php
+    $servername="localhost";
+    $username="root"; 
+    $password="";
+    $dbname="ebtdb"; 
+    $conn= new mysqli($servername,$username,$password,$dbname);
+    $currUser = $_SESSION['username'];
+    $admin = 0;
+    if($conn->connect_error){
+    die("Connection failed:". $conn->connect_error);
+  }
+    $sql = "SELECT admin FROM users WHERE username = '$currUser'";
+    $result = mysqli_query($conn, $sql);
+    if (mysqli_num_rows($result) > 0) {
+       while($row = mysqli_fetch_assoc($result)) {
+         $admin = $row["admin"];
+    }
+}
+      if($admin==1){
+        echo "<script>document.getElementById('adminized').classList.remove('hide')</script>";
+      }
+?>
 
 </body>
 </html>
