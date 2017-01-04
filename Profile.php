@@ -291,13 +291,14 @@ label {
 	margin-left: 900px;
 	
 	height: 235px;
-	width: 288px;
+	width: 330px;
 	padding: 5px;
 	border-radius: 5px;
 	background-color: 	#4169E1;
 	opacity: 0.9;
 	font-size: 17px;
 	border: 2px solid white;
+	overflow: scroll;
 }
 #p1
 {
