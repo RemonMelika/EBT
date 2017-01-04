@@ -303,6 +303,8 @@ label {
 {
 	
 	float: right;
+	font-size: 15px;
+	margin-left: 10px;
 }
 
 	</style>
@@ -317,7 +319,15 @@ label {
 	<img src="Images/qq.png" style="margin-bottom: 50px;">
 	
 	<form action="Home.php" onsubmit="">
-		<p style="margin-right: 200px;">Username:</p> <label style="color: white; border: 1px solid white; " id="l1"></label>  <p style="margin-left: 330px;"> Booking details:</p> <label id="lb5"><p id="p1" style="color: white;"></font></p></label>  
+		<p style="margin-right: 200px;">Username:</p>
+		 <label style="color: white; border: 1px solid white; " id="l1">
+		 	
+		 </label>  
+		 <p style="margin-left: 330px;"> Booking details:</p> 
+		 <label id="lb5"><p id="p1" style="color: white;">
+		 
+		 </p>
+		 </label>  
 
 		<br>
 		<br>
