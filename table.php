@@ -290,7 +290,7 @@ td{
             $deletequery="DELETE from tours WHERE tid='".$row['id']."'";
 				}
 
-        echo "<script> function myfunction(param){'.$conn->query('.$deletequery.')'}</script>"; 
+        //echo "<script> function myfunction(param){'.$conn->query('.$deletequery.')'}</script>"; 
 
 		?>
 		<?php
