@@ -18,112 +18,111 @@ if(isset($_POST["gosubmit"])) {
   $_SESSION['to'] = $_POST['to'];
   $_SESSION['date'] = $_POST['date'];
   header("Location: table.php");
-
 }
 ?>
-	<title>Main user</title>
-	<style type="text/css">
-		body{
-			font-family: arial, sans-serif;
-			text-align: center;
-			margin: 0 auto;
-			background-image: url(Images/d.jpg);
-			background-repeat: no-repeat;
-			background-size: 100% 720px;
-		}
-		#nav{
-			width: 100%;
-			height: 650px;
-		}
-		#nav_wrapper{
-			height: 80px;
-			width: 600px;
-			background: black;
-			margin-left: 340px;
-			margin-right: 300px;
-			margin-top: 1px;
-			opacity: 0.7;
-			filter: alpha (opacity=70);
-			border-radius: 10px;
-		}
-		#nav_wrapper ul li {
-			list-style:none;
-			display: inline;
-			font-weight: bold;
-			padding: 10px;
-		}
-		#nav_wrapper a {
-			color: white;
-			text-decoration: none;
-			padding: 15px;
-			margin-right: 10px;
-			margin-left: 10px;
-		}
-		#nav_wrapper ul li:hover{
-			background: #FFA500;
-			transition: all 0.45s;
-			border-radius: 10px;
-			opacity: 0.6;
-			filter: alpha (opacity=60);
-		}
-		span.reference{
-				position:fixed;
-				left:10px;
-				bottom:10px;
-				font-size:12px;
-			}
-			span.reference a{
-				color:#aaa;
-				text-transform:uppercase;
-				text-decoration:none;
-				text-shadow:1px 1px 1px #000;
-				margin-right:30px;
-			}
-			span.reference a:hover{
-				color:#ddd;
-			}
-			.cust{
-				width: 300px;
-				height: 450px;
-				text-align: center;
-				background-color: black;
-				opacity: 0.7;
-				border-radius: 10px;
-				float: right;
-				margin-top: 110px;
-			}
-			.cust img {
-			width: 120px;
-			height: 120px;
-			margin-top: -60px;
-			margin-bottom: 30px;
-		}
-		input[type="text"]{
-			height: 25px;
-			width: 100px;
-			font-size: 13px;
-			margin-bottom: 20px;
-			background-color: #fff;
-			padding-left: 5px;
-			border-radius: 4px;
-			float: left;
-			font-style: bold;
-		}
-		.find {
-			padding: 15px 30px;
-			opacity: 0.8;
-			background-color: 	#FFA500;
-			border: 2px;
-			color: black;
-			font-style: bold;
-			width: 130px;
-			border-radius:  10px;
-			margin-bottom: 20px;
-			cursor: pointer;
-			font-family:"Myriad Pro", "Trebuchet MS", sans-serif;
-		}
-		#btn_2 {
-			 width: 100px;
+  <title>Main user</title>
+  <style type="text/css">
+    body{
+      font-family: arial, sans-serif;
+      text-align: center;
+      margin: 0 auto;
+      background-image: url(Images/d.jpg);
+      background-repeat: no-repeat;
+      background-size: 100% 720px;
+    }
+    #nav{
+      width: 100%;
+      height: 650px;
+    }
+    #nav_wrapper{
+      height: 80px;
+      width: 600px;
+      background: black;
+      margin-left: 340px;
+      margin-right: 300px;
+      margin-top: 1px;
+      opacity: 0.7;
+      filter: alpha (opacity=70);
+      border-radius: 10px;
+    }
+    #nav_wrapper ul li {
+      list-style:none;
+      display: inline;
+      font-weight: bold;
+      padding: 10px;
+    }
+    #nav_wrapper a {
+      color: white;
+      text-decoration: none;
+      padding: 15px;
+      margin-right: 10px;
+      margin-left: 10px;
+    }
+    #nav_wrapper ul li:hover{
+      background: #FFA500;
+      transition: all 0.45s;
+      border-radius: 10px;
+      opacity: 0.6;
+      filter: alpha (opacity=60);
+    }
+    span.reference{
+        position:fixed;
+        left:10px;
+        bottom:10px;
+        font-size:12px;
+      }
+      span.reference a{
+        color:#aaa;
+        text-transform:uppercase;
+        text-decoration:none;
+        text-shadow:1px 1px 1px #000;
+        margin-right:30px;
+      }
+      span.reference a:hover{
+        color:#ddd;
+      }
+      .cust{
+        width: 300px;
+        height: 450px;
+        text-align: center;
+        background-color: black;
+        opacity: 0.7;
+        border-radius: 10px;
+        float: right;
+        margin-top: 110px;
+      }
+      .cust img {
+      width: 120px;
+      height: 120px;
+      margin-top: -60px;
+      margin-bottom: 30px;
+    }
+    input[type="text"]{
+      height: 25px;
+      width: 100px;
+      font-size: 13px;
+      margin-bottom: 20px;
+      background-color: #fff;
+      padding-left: 5px;
+      border-radius: 4px;
+      float: left;
+      font-style: bold;
+    }
+    .find {
+      padding: 15px 30px;
+      opacity: 0.8;
+      background-color:   #FFA500;
+      border: 2px;
+      color: black;
+      font-style: bold;
+      width: 130px;
+      border-radius:  10px;
+      margin-bottom: 20px;
+      cursor: pointer;
+      font-family:"Myriad Pro", "Trebuchet MS", sans-serif;
+    }
+    #btn_2 {
+       width: 100px;
     box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 10px;
@@ -131,9 +130,9 @@ if(isset($_POST["gosubmit"])) {
     visibility: hidden;
     background-repeat: no-repeat;
    height: 25px;
-		}
-		#btn_3 {
-		 width: 100px;
+    }
+    #btn_3 {
+     width: 100px;
     box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 10px;
@@ -141,7 +140,7 @@ if(isset($_POST["gosubmit"])) {
     visibility: hidden;
     background-repeat: no-repeat;
    height: 25px;
-		}
+    }
     #btn_4 {
        width: 100px;
     box-sizing: border-box;
@@ -153,11 +152,10 @@ if(isset($_POST["gosubmit"])) {
    height: 25px;
     }
    
-
-		.col{
-			border-radius:15px;
-			background-color:#FFA500;
-		}
+    .col{
+      border-radius:15px;
+      background-color:#FFA500;
+    }
 * {box-sizing:border-box}
 body {font-family: Verdana,sans-serif;margin:0}
 .mySlides {display:none}
@@ -223,10 +221,10 @@ body {font-family: Verdana,sans-serif;margin:0}
 .sidenav a:hover, .offcanvas a:focus{
     color: #f1f1f1;
     background: #FFA500;
-			transition: all 0.45s;
-			border-radius: 10px;
-			opacity: 0.6;
-			filter: alpha (opacity=60);
+      transition: all 0.45s;
+      border-radius: 10px;
+      opacity: 0.6;
+      filter: alpha (opacity=60);
 }
 .sidenav .closebtn {
     position: absolute;
@@ -244,7 +242,7 @@ body {font-family: Verdana,sans-serif;margin:0}
   .sidenav a {font-size: 18px;}
 }
 #tt{
-	float: left;
+  float: left;
 }
 .button {
   border-radius: 7px;
@@ -280,36 +278,36 @@ body {font-family: Verdana,sans-serif;margin:0}
   opacity: 1;
   right: 0;
 }
-	</style>
+  </style>
 
 
 </head>
 
 <body>
-	<div id="nav"><br>
+  <div id="nav"><br>
 
-		<div class="cust">
-		<img src="Images/t.png">
-			<form method="post" name="Form" onSubmit="return checkstatevalue()" action="">
-				
-					
+    <div class="cust">
+    <img src="Images/t.png">
+      <form method="post" name="Form" onSubmit="return checkstatevalue()" action="">
+        
+          
 
-				<br>
-				
+        <br>
+        
         <a href="table.php">
-				<button  type="button" name="submit" class="button"> <span> Find Buses</span></button></a>
-				<br>
-				<br>
-				<button  type="button" name="submit" class="button" onclick='javascript:show_hide("btn_1","btn_2","btn_3","btn_4","btn_5")' id='btn_1'> <span> Specific Tour</span></button>
-				<br>
-				<br>
-				<br>
+        <button  type="button" name="submit" class="button"> <span> Find Buses</span></button></a>
+        <br>
+        <br>
+        <button  type="button" name="submit" class="button" onclick='javascript:show_hide("btn_1","btn_2","btn_3","btn_4","btn_5")' id='btn_1'> <span> Specific Tour</span></button>
+        <br>
+        <br>
+        <br>
         <form method="post" name="Form" onsubmit="" action="">
-				<input list="from" type="text" name="from" id="btn_3" placeholder="FROM . . .  " style="
+        <input list="from" type="text" name="from" id="btn_3" placeholder="FROM . . .  " style="
     border: 2px solid #ccc;
     border-radius: 10px;
     font-size: 10px;
-   	width: 100px;
+    width: 100px;
    height: 25px;
    float: left;
    margin-left: 40px;" required="" >
@@ -326,7 +324,7 @@ body {font-family: Verdana,sans-serif;margin:0}
     border: 2px solid #ccc;
     border-radius: 10px;
     font-size: 10px;
-   	width: 100px;
+    width: 100px;
    height: 25px;
    margin-right: 40px;
    margin-left: 10px" required="">
@@ -364,7 +362,6 @@ body {font-family: Verdana,sans-serif;margin:0}
         "Sokhna",
         "Sharkyea"
     ];
-
     for (var key in from) {
         var optionElement = document.createElement("option");
         optionElement.value = from[key];
@@ -374,7 +371,6 @@ body {font-family: Verdana,sans-serif;margin:0}
         "Sokhna",
         "Sharkyea"
     ];
-
     for (var key in to) {
         var optionElement = document.createElement("option");
         optionElement.value = from[key];
@@ -383,7 +379,6 @@ body {font-family: Verdana,sans-serif;margin:0}
     var date = [
         
     ];
-
     for (var key in date) {
         var optionElement = document.createElement("option");
         optionElement.value = from[key];
@@ -392,7 +387,7 @@ body {font-family: Verdana,sans-serif;margin:0}
 </script>
 
 
-		    <script language='javascript' type='text/javascript'>
+        <script language='javascript' type='text/javascript'>
  
         function show_hide(id2hide, id2show, id2show2, id2hide2, id2show3)
         {
@@ -406,18 +401,18 @@ body {font-family: Verdana,sans-serif;margin:0}
     </script>
 
 
-			</form>
+      </form>
 
-		</div><br>
+    </div><br>
 
-			<div id="nav_wrapper"><br>
-				<ul>
-					<li><a href="#">My booked tickets</a></li>
+      <div id="nav_wrapper"><br>
+        <ul>
+          <li><a href="Profile.php">Profile and booked tickets' information</a></li>
 
 
-				</ul>
+        </ul>
 
-			</div>
+      </div>
 
 
 <div id="mySidenav" class="sidenav" style="float: left;">
@@ -429,7 +424,7 @@ body {font-family: Verdana,sans-serif;margin:0}
 <span style="font-size:30px;cursor:pointer" onclick="openNav()" id="tt">&#9776;</span>
 
 
-			<div class="slideshow-container">
+      <div class="slideshow-container">
 
 
 <div class="mySlides fade" >
@@ -466,19 +461,19 @@ body {font-family: Verdana,sans-serif;margin:0}
 <br>
 
 
-	</div>
+  </div>
 
 
 
 <div>
             <span class="reference" >
                 <a href="@">Contact us</a>
-				<a href="@">Terms</a>
-				<a href="@">Developers</a>
-				<a href="@">Help</a>
-				<a href="@">Cookies</a>
+        <a href="@">Terms</a>
+        <a href="@">Developers</a>
+        <a href="@">Help</a>
+        <a href="@">Cookies</a>
 
-				<a href="Admin's_form.html" style="display: none;">privacy</a>
+        <a href="Admin's_form.html" style="display: none;">privacy</a>
         <audio controls autoplay style="display: none;" id="background_audio" autoplay="autoplay">
 
   <source src="images\k.mp3" type="audio/mpeg">
@@ -490,7 +485,6 @@ body {font-family: Verdana,sans-serif;margin:0}
 <button type="button" class="button" style="margin-left: 800px; background-color: black; width: 80px; opacity: 0.7;" href="#noscroll" id="mute">Mute</button>
 <script type="text/javascript">
   var audio = document.getElementById('background_audio');
-
 document.getElementById('mute').addEventListener('click', function (e)
 {
     e = e || window.event;
@@ -502,8 +496,8 @@ document.getElementById('mute').addEventListener('click', function (e)
 
 
             </span>
-		</div>
-		<script>
+    </div>
+    <script>
 var slideIndex = 0;
 showSlides();
 function showSlides() {
