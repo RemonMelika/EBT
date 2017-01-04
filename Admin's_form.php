@@ -16,7 +16,7 @@
 	$from= $_POST["from"];
 	$to= $_POST["to"];
 	$date= $_POST["date"];
-	$datefinal=str_replace("/","-",$date);
+	$datefinal=str_replace("/","-",$date);	
 	$price=$_POST["price"];
 	$seats=$_POST["seats"];
 	$id = substr($from,0,1).substr($to,0,1).str_ireplace("/","",$date);
@@ -32,7 +32,6 @@
 	}
 	else{
 		echo "Record addition failed";
-		echo $conn->connect_error;
 	}
 
 
@@ -50,7 +49,7 @@
 		#nav{
 			width: 100%;
 			height: 650px;
-
+		
 		}
 		#nav_wrapper{
 			height: 80px;
@@ -67,7 +66,7 @@
 
 		#nav_wrapper ul li {
 			list-style:none;
-			display: inline;
+			display: inline; 
 			font-weight: bold;
 			padding: 10px;
 
@@ -113,11 +112,11 @@
 			padding-left: 10px;
 			border-radius: 4px;
 		}
-
+	
 		.btn-login {
-
-			padding: 15px 30px;
-
+			
+			padding: 15px 30px;  
+			
 			opacity: 0.8;
 			background-color: #27AE60;
 			border: 2px;
@@ -186,23 +185,23 @@
   opacity: 1;
   right: 0;
 }
-
-
+			
+		
 	</style>
 </head>
 <body>
 
 
-
+	
 	<div id="nav_wrapper"><br>
 				<ul>
 					<li><a href="User.html" >Home</a></li>
 					<li><a href="#">Blog</a></li>
 					<li><a href="#">Account</a></li>
 					<li><a href="#">Service</a></li>
-
+					
 				</ul>
-
+			
 			</div>
 <div class="container">
 
@@ -216,16 +215,16 @@
 			<input type="text" name="date" placeholder="YY/MM/DD" style="margin-right: 20px;" required=""> <input type="text" name="price" placeholder="Price" required="">
 		</div>
 		<div class="form-input">
-			<input type="text" name="seats" placeholder="Number of seats" required="">
+			<input type="text" name="seats" placeholder="Number of seats" required=""> 
 		</div>
 	<br>
-		<button class="button" type="submit" name="submit"><span>Add tour</span></button>
+		<button class="button" type="submit" name="submit"><span>Add tour</span></button> 
+		
 
-
-
+		
 
 	</form>
-
+	
 </div>
 <div>
             <span class="reference">
