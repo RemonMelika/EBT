@@ -409,7 +409,7 @@ label {
          $currTour = $row["tour_id"];
          $currBseat = $row["bseats"];
          $currID = $row["bookid"];
-         echo "<script>document.getElementById('p1').innerHTML += '<strong>Tour ID: </strong>'+'$currTour <br>'+' <strong>No. of booked seats: </strong>'+'$currBseat <br>'+' <strong>Booking ID: </strong>'+'$currID'+')<br><br>'</script>";
+         echo "<script>document.getElementById('p1').innerHTML += '<strong>Tour ID: </strong>'+'$currTour <br>'+' <strong>No. of booked seats: </strong>'+'$currBseat <br>'+' <strong>Booking ID: </strong>'+'$currID'+'<br><br>'</script>";
 }
 }    
 ?>
