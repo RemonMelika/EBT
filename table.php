@@ -263,6 +263,20 @@ td{
             </span>
 		</div>
 				<?php
+        if(isset($_COOKIE['cookieName'])){
+        $deletequery= "DELETE from tours where id ='".$_COOKIE['cookieName']."'";
+        if($_COOKIE['cookieName']!="nothing"){
+        $result=$conn->query($deletequery);
+
+        if(!$result)
+        {
+              //echo $conn->error;
+
+        }
+        echo"<script>document.cookie ='cookieName=nothing'";
+          echo "<script>location.reload()</script>";
+      }
+    }
         if($flag=="true"){
 
         $sql="SELECT * from tours where  tdate = '".$tdate."' && tfrom='".$tfrom."' && tto ='".$tto."'";
@@ -290,15 +304,19 @@ td{
 				}
             $deletequery="DELETE from tours WHERE tid='".$row['id']."'";
 				}
+        echo"<script> function myfunction(param){
+       document.cookie = 'cookieName='+param.id;
+      location.reload();
+      }</script>";
 
-        //echo "<script> function myfunction(param){'.$conn->query('.$deletequery.')'}</script>"; 
+        //echo "<script> function myfunction(param){'.$conn->query('.$deletequery.')'}</script>";
 
 		?>
 		<?php
 		$servername="localhost";
-		$username="root";	
+		$username="root";
 		$password="";
-		$dbname="ebtdb"; 
+		$dbname="ebtdb";
 		$conn= new mysqli($servername,$username,$password,$dbname);
 		$currUser = $_SESSION['username'];
 		$admin = 0;
@@ -317,6 +335,8 @@ td{
     		echo "<script>document.getElementById('adminized2').classList.remove('hide')</script>";
     		echo "<script>$('td').removeClass('hide')</script>";
     	}
+
+
 		?>
 
 </body>
