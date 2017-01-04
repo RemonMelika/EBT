@@ -219,7 +219,8 @@
 		</div>
 	<br>
 		<button class="button" type="submit" name="submit"><span>Add tour</span></button> 
-		
+		<button class="button" type="" name="submit" onclick="window.location='Home.php'"><span>Back</span></button> 
+
 
 		
 

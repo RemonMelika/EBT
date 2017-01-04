@@ -1,20 +1,19 @@
 <?php
 session_start();
 ?>
-<?php 
+<?php
 	$servername="localhost";
 	$username="root";
 	$password="";
-	$dbname="ebtdb"; 
-	$bid = array("CK201718","CS201715","HS201711"); //tempstatic
-	$bseats = array("4","2","1"); //tempstatic
+	$dbname="ebtdb";
+//$bid = array("CK201718","CS201715","HS201711"); //tempstatic
+//$bseats = array("4","2","1"); //tempstatic
 	$total = 0;
-	//$bid = $_SESSION['bid'];
-	//$bseats = $_SESSION['bseats'];
+	$bid = $_SESSION['bid'];
+	$bseats = $_SESSION['bseats'];
 	$currUser = $_SESSION['username'];
 	$currSeats = 0;
 	$conn= new mysqli($servername,$username,$password,$dbname);
-
 	if($conn->connect_error){
 		die("Connection failed:". $conn->connect_error);
 	}
@@ -44,9 +43,9 @@ session_start();
 		echo "Record addition failed";
 	}
 	$index2++;
-}			
+}
 	$conn->close();
-	header("Location: Home.php");
+//	header("Location: Home.php");
 
 }
 ?>
@@ -64,7 +63,7 @@ session_start();
 		#nav{
 			width: 100%;
 			height: 650px;
-		
+
 		}
 		#nav_wrapper{
 			height: 80px;
@@ -80,7 +79,7 @@ session_start();
 		}
 		#nav_wrapper ul li {
 			list-style:none;
-			display: inline; 
+			display: inline;
 			font-weight: bold;
 			padding: 10px;
 
@@ -125,11 +124,11 @@ session_start();
 			padding-left: 10px;
 			border-radius: 4px;
 		}
-	
+
 		.btn-login {
-			
-			padding: 15px 30px;  
-			
+
+			padding: 15px 30px;
+
 			opacity: 0.8;
 			background-color: #27AE60;
 			border: 2px;
@@ -194,7 +193,7 @@ session_start();
   opacity: 1;
   right: 0;
 }
-	
+
 	.form {
   background: rgba(19, 35, 47, 0.9);
   padding: 40px;
@@ -341,14 +340,14 @@ tr:nth-child(even){
 tr:nth-child(odd){
     background-color: white;
 }
-			
+
 td{
 	background-color: #aaa;
 	width: 20px;
 }
 #scr.scroll {
-    
-   
+
+
     overflow: scroll;
 }
 
@@ -356,11 +355,11 @@ p{
 	color: #aaa;
 	font-family: sans-serif;
 	float: left;
-	margin-left: 70px; 
+	margin-left: 70px;
 	margin-right: 50px;
-	
+
 	font-size: 17px;
-}	
+}
 
 label {
 	color: #aaa;
@@ -375,23 +374,23 @@ label {
 	font-size: 20px;
 	margin-top: 40px;
 }
-	
+
 #p1{
 		color: black;
 	font-family: sans-serif;
 	float: left;
-	margin-left: 10px; 
+	margin-left: 10px;
 	margin-right: 50px;
-	
+
 	font-size: 15px;
 }
 #p2{
 	color: #aaa;
 	font-family: sans-serif;
 	float: left;
-	margin-left: 70px; 
+	margin-left: 70px;
 	margin-right: 50px;
-	
+
 	font-size: 17px;
 }
 #lb1{
@@ -413,8 +412,8 @@ label {
 <body>
 
 
-	
-	
+
+
 <div class="container">
 
 	<img src="Images/ii.png">
@@ -424,7 +423,7 @@ label {
 	<p> Review you Bookings!</p></legend>
 		 <label style="color: white; border: 1px solid white;" id="l1"><p id="p1"></p> </label>
 		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-		
+
 		<p id="p2"> Total Fees:</p><label id="lb1" style="color: black;"></label>
 		<br>
 		<br>
@@ -438,12 +437,12 @@ label {
 		<br>
 		<br>
 
-		
+
 		<span style="color: #aaa; ">Please note 5% tax is added on the final receipt</span>
 
 
 	</form>
-	
+
 </div>
 
 <div>
@@ -457,21 +456,21 @@ label {
 
             </span>
 </div>
-<?php 
+<?php
 	$servername="localhost";
 	$username="root";
 	$password="";
-	$dbname="ebtdb"; 
+	$dbname="ebtdb";
 	$conn= new mysqli($servername,$username,$password,$dbname);
 
 	if($conn->connect_error){
 		die("Connection failed:". $conn->connect_error);
 	}
-	$bid = array("CK201718","CS201715","HS201711"); //tempstatic
-	$bseats = array("4","2","1"); //tempstatic
+	//$bid = array("CK201718","CS201715","HS201711"); //tempstatic
+	//$bseats = array("4","2","1"); //tempstatic
 	$total = 0;
-	//$bid = $_SESSION['bid'];
-	//$bseats = $_SESSION['bseats'];
+	$bid = $_SESSION['bid'];
+	$bseats = $_SESSION['bseats'];
 	$currUser = $_SESSION['username'];
 	$currSeats = 0;
 	$index = 0;
@@ -491,7 +490,7 @@ label {
 	$index++;
 }
 	$final = 1.05*$total;
-	echo "<script>document.getElementById('lb1').innerHTML = '$final'+' Pounds'</script>";	
+	echo "<script>document.getElementById('lb1').innerHTML = '$final'+' Pounds'</script>";
 ?>
 </body>
 </html>

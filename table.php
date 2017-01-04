@@ -5,6 +5,7 @@ session_start();
 <html>
 <head>
  <script src="jquery-3.1.1.js"></script>
+ <script src="jquery_cookie.js" type="text/javascript"></script>
 <?php
 			//Connect to the DB
 
@@ -238,7 +239,7 @@ td{
 
 </table>
 <button  type="" onclick="window.location='Home.php'" name="submit" class="button" style="background-color: #006400" > <span> Back </span></button>
-<a href='checkOut.php'><button  type="submit" name="submit" class="button"  style=" background-color: blue;" > <span> SUBMIT! </span></button></a>
+<a ><button  onclick="pre_Checkout()" type="submit" name="submit" class="button"  style=" background-color: blue;" > <span> SUBMIT! </span></button></a>
 <br>
 
 	<form>
@@ -263,6 +264,28 @@ td{
             </span>
 		</div>
 				<?php
+        if(isset($_COOKIE['IDs_Cookie'])){
+        $_SESSION['bid']=json_decode($_COOKIE['IDs_Cookie']);
+        $_SESSION['bseats']=json_decode($_COOKIE['Reserved_Cookie']);
+        echo"<script>
+        Cookies.remove('IDs_Cookie');
+        location.href ='checkOut.php';
+        </script>";
+        }
+        if(isset($_COOKIE['cookieName'])){
+        $deletequery= "DELETE from tours where id ='".$_COOKIE['cookieName']."'";
+        if($_COOKIE['cookieName']!="nothing"){
+        $result=$conn->query($deletequery);
+
+        if(!$result)
+        {
+              //echo $conn->error;
+
+        }
+        echo"<script>document.cookie ='cookieName=nothing'</script>";
+          echo "<script>location.reload()</script>";
+      }
+    }
         if($flag=="true"){
 
         $sql="SELECT * from tours where  tdate = '".$tdate."' && tfrom='".$tfrom."' && tto ='".$tto."'";
@@ -282,7 +305,7 @@ td{
 						.$row['price']."</td>"
             ."<td>".$row['tdate']."</td>"
             ."<td>".$row['seats']."</td>"
-						."<td><input type=number min=0 max=".$row['seats']." step=1 value=0 style=width:40px; required ></td>"
+						."<td> <input class=slider data-tid=".$row['id']." type=number min=0 max=".$row['seats']." step=1 value=0 style=width:40px; required ></td>"
             ."<td class=hide id=adminized><a href=Admin\'s_form.html><button class=button type=submit name=submit><span>Edit</span> </button></a> </td>"
 						."<td class=hide id=adminized> <button class=button onclick=myfunction(this) type=submit name=submit style=background-color:red; id=".$row['id']."><span>Delete</span> </button> </td>"
 						."</tr>";
@@ -290,15 +313,19 @@ td{
 				}
             $deletequery="DELETE from tours WHERE tid='".$row['id']."'";
 				}
+        echo"<script> function myfunction(param){
+       document.cookie = 'cookieName='+param.id;
+      location.reload();
+      }</script>";
 
-        //echo "<script> function myfunction(param){'.$conn->query('.$deletequery.')'}</script>"; 
+        //echo "<script> function myfunction(param){'.$conn->query('.$deletequery.')'}</script>";
 
 		?>
 		<?php
 		$servername="localhost";
-		$username="root";	
+		$username="root";
 		$password="";
-		$dbname="ebtdb"; 
+		$dbname="ebtdb";
 		$conn= new mysqli($servername,$username,$password,$dbname);
 		$currUser = $_SESSION['username'];
 		$admin = 0;
@@ -317,7 +344,30 @@ td{
     		echo "<script>document.getElementById('adminized2').classList.remove('hide')</script>";
     		echo "<script>$('td').removeClass('hide')</script>";
     	}
-		?>
 
+
+		?>
+<script>
+function pre_Checkout(){
+  var tour_ids=[];
+  var reserved=[];
+  $(".slider").each(function(){
+   var value=$(this).val();
+   if(value>0){
+     console.log($(this).data('tid')+"  "+ value);
+     tour_ids.push($(this).data('tid'));
+     reserved.push(value);
+   }
+   Cookies.set('IDs_Cookie', JSON.stringify(tour_ids));
+   Cookies.set('Reserved_Cookie', JSON.stringify(reserved));
+   location.reload();
+});
+/*  $("td").each(function() {
+    console.log($(this).attr("id"));
+
+    // compare id to what you want
+});*/
+}
+</script>
 </body>
 </html>
