@@ -312,12 +312,12 @@ body {font-family: Verdana,sans-serif;margin:0}
    float: left;
    margin-left: 40px;" required="" >
 <datalist id="from">
-    <option value="Cairo">
-    <option value="Alexandria">
-    <option value="Gharbia">
-    <option value="Mansoura">
-    <option value="Marassy">
-    <option value="Hurghada">
+ <?php 
+  $query = "SELECT tfrom FROM tours";
+   while($row = mysql_fetch_assoc($query)){
+    ?>
+  <option value="<?php echo $row['tfrom']; ?>">
+  <?php } ?> 
 </datalist>
 
 <input list="to" type="text" name = "to" id="btn_2" placeholder="TO . . .  " style="
@@ -329,11 +329,12 @@ body {font-family: Verdana,sans-serif;margin:0}
    margin-right: 40px;
    margin-left: 10px" required="">
 <datalist id="to" style="float: left;">
-    <option value="Sharm El Sheikh">
-    <option value="Sahl Hashesh">
-    <option value="Gouna">
-    <option value="Sharkyea">
-    
+  <?php 
+  $query = "SELECT tto FROM tours";
+   while($row = mysql_fetch_assoc($query)){
+    ?>
+  <option value="<?php echo $row['tto']; ?>">
+  <?php } ?> 
 </datalist>
 <br>
 <br>
@@ -359,8 +360,6 @@ body {font-family: Verdana,sans-serif;margin:0}
 
 <script>
     var from = [
-        "Sokhna",
-        "Sharkyea"
     ];
     for (var key in from) {
         var optionElement = document.createElement("option");
@@ -368,8 +367,6 @@ body {font-family: Verdana,sans-serif;margin:0}
         document.getElementById("from").appendChild(optionElement);
     }
       var to = [
-        "Sokhna",
-        "Sharkyea"
     ];
     for (var key in to) {
         var optionElement = document.createElement("option");
