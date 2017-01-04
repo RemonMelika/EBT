@@ -237,7 +237,8 @@ td{
 
 
 </table>
-<button  type="submit" name="submit" class="button"  style=" background-color: blue;" > <span> SUBMIT! </span></button>
+<button  type="" onclick="window.location='Home.php'" name="submit" class="button" style="background-color: #006400" > <span> Back </span></button>
+<a href='checkOut.php'><button  type="submit" name="submit" class="button"  style=" background-color: blue;" > <span> SUBMIT! </span></button></a>
 <br>
 
 	<form>
