@@ -281,7 +281,7 @@ label {
 	padding: 5px;
 	border-radius: 5px;
 	background-color: 	#4169E1;
-	opacity: 0.6;
+	opacity: 0.9;
 	font-size: 17px;
 	border: 2px solid white;
 }
@@ -295,7 +295,7 @@ label {
 	padding: 5px;
 	border-radius: 5px;
 	background-color: 	#4169E1;
-	opacity: 0.6;
+	opacity: 0.9;
 	font-size: 17px;
 	border: 2px solid white;
 }

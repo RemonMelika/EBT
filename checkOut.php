@@ -33,7 +33,7 @@ session_start();
 }
 	$bookedSeats = $bseats[$index2];
 	$newSeats = $currSeats - $bookedSeats;
-	$bookid = $currID.$bookedSeats;
+	$bookid = substr($currUser,0,3).substr($currID,0,4).$bookedSeats;
 	$sql="INSERT INTO bookings (bookid,username,tour_id,bseats)
 	VALUES ('$bookid','$currUser','$currID','$bookedSeats')";
 	$sql2="UPDATE tours SET seats = $newSeats WHERE id = '$currID'";
