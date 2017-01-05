@@ -45,7 +45,7 @@ session_start();
 	$index2++;
 }
 	$conn->close();
-//	header("Location: Home.php");
+	header("Location: Home.php");
 
 }
 ?>
